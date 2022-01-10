@@ -1,0 +1,15 @@
+version: '3.1'
+
+services:
+  mydb:
+    container_name: test_db_for_graphql
+    image: postgres:latest
+    restart: unless-stopped
+    environment:
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+    ports:
+      - ${POSTGRES_PORTS}
+    env_file:
+      - .env
